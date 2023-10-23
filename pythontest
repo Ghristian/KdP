@@ -1,0 +1,4 @@
+
+print("Das Alphabet ist  ")
+print(len("ABCDEFghijklmnopqRSTUVWxyz"))
+print("Zeichen lang.")
