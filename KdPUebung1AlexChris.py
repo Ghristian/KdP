@@ -61,7 +61,7 @@ elif age >= 65 :
     print ("Ihr Ticket kostet 12 Euro")
 
 else :
-    print ("Bitte geben sie eine ganzahlige Zahl ein")
+    print ("Fehler, bitte Programm neu laden")
 
 
 #2b)
