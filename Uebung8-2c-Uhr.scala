@@ -1,8 +1,12 @@
+//2b)
+
 
 // Eigener Datentyp Uhrzeit 1. Int ist Stunden, Zweiter ist Minuten und 3. Int ist Sekunden
 type Uhrzeit = (Int, Int, Int)
 
-// überprüft, ob gegebenes Tripel ganzer Zahlen eine gültige Uhrzeit ist
+//Vorraussetzung: keine
+//Effekt: keine
+//Ergebnis: überprüft, ob gegebenes Tripel ganzer Zahlen eine gültige Uhrzeit ist
 def istUhrzeit (g: Uhrzeit) : Boolean =
     val (stunden,min,sek) = g
     if stunden >= 0 && stunden <=23 &&  min >= 0 && min <= 59 && sek >= 0 && sek <= 59 then
@@ -15,8 +19,9 @@ def istUhrzeit (g: Uhrzeit) : Boolean =
         istUhrzeit(11,11,00) = true
         */
 
-
-//bekommt eine Uhrzeit und liefert die Uhrzeit eine Sekunde später
+//Vorraussetzung: gültige Uhrzeit
+//Effekt: keine
+//Ergebnis: liefert die Uhrzeit eine Sekunde später
 def tick (b:Uhrzeit) : Uhrzeit =
      val (stunden,min,sek) = b
       // Berechne die neue Sekunde, Minute und Stunde nach dem Hinzufügen einer Sekunde
@@ -32,7 +37,9 @@ def tick (b:Uhrzeit) : Uhrzeit =
     */
 
 
-//Umkehrfunktion von tick
+//Vorraussetzung: gültige Uhrzeit
+//Effekt: keine
+//Ergebnis: liefert die Uhrzeit eine Sekunde früher
 def kcit  (c:Uhrzeit) : Uhrzeit =
      var (stunden,minuten,sekunden) = c
      if (sekunden > 0) {
@@ -53,27 +60,25 @@ def kcit  (c:Uhrzeit) : Uhrzeit =
     */    
 
 
-/*Die Funktionen addSekunden, addMinuten und addStunden bekommen eine
-gültige Uhrzeit und eine ganze Zahl und addieren diese ganze Zahl auf
-die Sekunden, Minuten bzw. Sekunden*/
-
-//def addSekunden (Uhrzeit:Int) : Uhrzeit =
-
-//def addMinuten (Uhrzeit:Int) : Uhrzeit =
-
-//def addStunden (Uhrzeit:Int) : Uhrzeit =
 
 
+
+//Vorraussetzung: gültige Uhrzeit
+//Effekt: keine
+//Ergebnis: liefert die Uhrzeit Input Sekunden später
 def addSekunden(stunden: Int, minuten: Int, sekunden: Int, hinzufuegen: Int): (Int, Int, Int) = {
   val gesamtSekunden = stunden * 3600 + minuten * 60 + sekunden + hinzufuegen
   (gesamtSekunden / 3600, (gesamtSekunden % 3600) / 60, gesamtSekunden % 60)
 }
-
 /*Tests
 addSekunden(11,11,11,50) = (11,12,1)
 addSekunden(11,59,50,30) = (12,0,20)
 */
 
+
+//Vorraussetzung: gültige Uhrzeit
+//Effekt: keine
+//Ergebnis: liefert die Uhrzeit Input Minuten später
 def addMinuten(stunden: Int, minuten: Int, sekunden: Int, hinzufuegen: Int): (Int, Int, Int) = {
   val gesamtMinuten = stunden * 60 + minuten + hinzufuegen
   (gesamtMinuten / 60, gesamtMinuten % 60, sekunden)
@@ -82,10 +87,12 @@ def addMinuten(stunden: Int, minuten: Int, sekunden: Int, hinzufuegen: Int): (In
 /*Tests
 addMinuten(1,40,33,35) = (2,15,33)
 addSekunden(11,59,50,30) = (12,29,50)
-
 */
 
 
+//Vorraussetzung: gültige Uhrzeit, Input + stunden<= 24
+//Effekt: keine
+//Ergebnis: liefert die Uhrzeit Input Stunden später
 def addStunden(stunden: Int, minuten: Int, sekunden: Int, hinzufuegen: Int): (Int, Int, Int) = {
   (stunden + hinzufuegen, minuten, sekunden)
 }
@@ -93,5 +100,4 @@ def addStunden(stunden: Int, minuten: Int, sekunden: Int, hinzufuegen: Int): (In
 /*Tests
 addStunden(1,0,0,3) = (4,0,0)
 addStunden(14,50,50,2) = (16,50,50)
-
 */
