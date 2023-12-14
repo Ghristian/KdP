@@ -30,7 +30,27 @@ def isleapy (n : Long) : Boolean =
 			false
 
 //2b)
-
+// Vorraussetzung: n >= 0
+// Effekt: Keine
+// Ergebnis: Die Quersumme von n ist gegeben.
+def quersumme(n: Int): Int =
+    def quersummeHelper(n: Int, acc: Int): Int =
+        if (n == 0) acc // Rekursionsanker
+        else quersummeHelper(n / 10, acc + n % 10)
+    quersummeHelper(n, 0)
+/*  Tests:
+ quersumme(0) = 0
+ quersumme(111) = 3
+ quersumme(47142) = 18
+ Beispiel mit n = 47142
+    quersummeHelper(47142, 0) n ist erste Zahl, zweite ist gespeicherte Quersumme im Akkumulator
+    quersummeHelper(4714,2) 47142 ganzzahlig durch 10 geteilt ist 4714, 0 + 47142 modulu 10 = 0 + 2 = 2
+    quersummeHelper(471,6)  4714 ganzzahlig durch 10 geteilt ist 471, 2 + 4714 modulu 10 = 2 + 4 = 6 
+    quersummeHelper(47,7)   471 ganzzahlig durch 10 geteilt ist 47, 6 + 471 modulu 10 =  6 + 1 = 7
+    quersummeHelper(4, 7 + 7 = 14)47 ganzzahlig durch 10 geteilt ist 4, 6 + 47 modulu 10 =  7 + 7 = 14
+    quersummeHelper(0, 14 + 4 = 18)4 ganzzahlig durch 10 geteilt ist 0, 14 + 4 modulu 10 =  14 + 4 = 18
+    return acc = 18
+*/ 
 
 // Eigener Datentyp Uhrzeit 1. Int ist Stunden, Zweiter ist Minuten und 3. Int ist Sekunden
 type Uhrzeit = (Int, Int, Int)
