@@ -1,5 +1,14 @@
-// Checks if input is a leap year or not
+//2a)
 
+// Vorraussetzung: jahr >= 0
+// Effekt: Keine
+// Ergebnis: Es ist gegeben ob das Jahr ein LeapYear/ Schaltjahr  ist.
+// Testfälle:
+    /* 
+isleapy(1900) = false
+isleapy(1904) = true
+isleapy(1905) = false
+ */
 import scala.io.StdIn
 
 @main
@@ -12,4 +21,3 @@ def isleapy (n : Long) : Boolean =
 			true
 	else
 			false
-
