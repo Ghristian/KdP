@@ -3,6 +3,89 @@
 
 
 
+// Aufgabe 1a)
+
+// def windchill (t: Double, v: Double) : Unit 
+// Voraussetzung: t und v sind nicht leer
+// Effekt: Windchill-Temperatur ist angezeigt
+// Ergebnis: t und v sind gefragt und wc wird berechnet
+/*Tests
+windchill(0, 0) = 13.12
+windchill(35,25) = 39.069
+windchill (-20, 100) = -39.63
+*/
+
+import scala.io.StdIn.readLine
+
+
+
+def windchill () : Unit =
+    val t : Double = readLine ("Geben Sie eine Temperatur an ").toDouble
+    val v : Double = readLine ("Geben Sie eine Windgeschwindigkeit an ").toDouble
+    val wc = 13.12 + 0.6215 * t + (0.3965 * t - 11.37) * math.pow(v,0.16)
+    println("Die Windchill-Temperatur beträgt " + wc)
+
+// Aufgabe 1b)
+//def backwards(n: Int): Unit = 
+// Voraussetzung: n>=0
+// Effekt: Die Rückwärtsdezimalzahl ist angezeigt
+// Ergebnis: Es wird eine Dezimalzahl n eingegeben (in Funktion) und mittels arithmethischer Operationen zur Rückwärtsdezimalzahl verwandelt
+/* Tests
+backwards(1) = 1
+backwards(12) = 21
+backwards(47142) = 24171
+*/
+
+def backwards(n: Int): Int = 
+  def step(acc: Int, n: Int): Int =
+    n match 
+      case n if (n < 0) => throw Exception("Fehler, keine negativen Zahlen!")
+      case 0 => acc // Anker
+      case n if (n > 0) =>
+        val lastnr = n % 10
+        val bwnr = acc * 10 + lastnr
+        step(bwnr, n / 10)
+    
+  
+  step(0, n)
+
+
+
+// Aufgabe 1c)
+// def countAsTroll(n: Int): String =
+// Vorraussetzung= n>0
+// Effekt: Zahl in Troll-Sprache ist geliefert als String
+// Ergebnis: Eingabezahl wird in Troll-Sprache mit matching umgewandelt
+/*Test
+countAsTroll(1)= "One"
+countAsTroll(0)= "What is this ??"
+countAsTroll(8)= Many-Many
+countAsTroll(15)= Many-Many-Many-Three
+*/
+@main
+def countAsTroll(n: Int): String =
+  def step(acc: String, n: Int): String =
+    n match
+      case 0 if n== 0 => "What is this ??"
+      case n if n==1 && n%1== 0 => "One"
+      case n if n==2 && n%2== 0=> "Two"
+      case n if n==3 && n%3== 0 => "Three"
+      case 4 => "Many"
+      case _ if 5 to 7 contains n => s"Many-${step("", n - 4)}"
+      case 8 => "Many-Many"
+      case _ if 9 to 11 contains n => s"Many-Many-${step("", n - 8)}"
+      case 12 => "Many-Many-Many"
+      case _ if 13 to 15 contains n => s"Many-Many-Many-${step("", n - 12)}"
+      case 16 => "Lots"
+      case _ if 17 to 19  contains n =>  s"Lots-${step("", n - 16)}"
+      case 20 => "Lots-Lots"
+      case _ if (n<0) => "I can not count with few or less ;(" // Anker
+      
+
+  val aacc = ""
+  step(aacc, n)
+
+//1d) siehe PDF
 
 
 //2a)
@@ -10,7 +93,7 @@
 // Vorraussetzung: jahr >= 0
 // Effekt: Keine
 // Ergebnis: Es ist gegeben ob das Jahr ein LeapYear/ Schaltjahr  ist.
-// Testfälle:
+// Tests:
     /* 
 isleapy(1900) = false
 isleapy(1904) = true
@@ -52,6 +135,8 @@ def quersumme(n: Int): Int =
     return acc = 18
 */ 
 
+
+//2c)
 // Eigener Datentyp Uhrzeit 1. Int ist Stunden, Zweiter ist Minuten und 3. Int ist Sekunden
 type Uhrzeit = (Int, Int, Int)
 
@@ -153,3 +238,4 @@ addStunden(1,0,0,3) = (4,0,0)
 addStunden(14,50,50,2) = (16,50,50)
 */
 
+//2d) siehe PDF
