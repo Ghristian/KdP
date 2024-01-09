@@ -1,14 +1,4 @@
-/* Uebung 10 Abgabe zum 12.01.2024
-Von Alexander Parotsidi und Christian Papenfuss
- Tutorium 04 Montag 10-12 Uhr
-Tutor: Alex, Adrian-Maurice
- */
-
 //2a)
-
-// Vorrasusetzungen: Datentyp von Elementen in Ordering
-// Effekt: Eine sortierte Liste ist ausgegeben
-// Ergebnis:Eine sortierte Liste ist geliefert
 
 //def merge [T:Ordering] (left : Int, right : Int, List[T])
     //val ord = summon[Ordering[T]]
@@ -34,7 +24,9 @@ merge(List(1,2,3,4),List(5,6)) =  List(1, 2, 3, 4, 5, 6)
 merge(List(1,3,4,7,9),List(2,5,6)) =  List(1, 2, 3, 4, 5, 6, 7, 9)
 merge(List("a","c"),List("b","d")) =  List(a, b, c, d)
  */
-
+// Vorrasusetzungen: Alle Elemente vom selben Datentyp
+// Effekt: keiner
+// Ergebnis: sortierte Liste ist gegeben
 def mergesort [T:Ordering] (liste: List[T]): List[T] = 
     val ord = summon[Ordering[T]]
     import ord.mkOrderingOps
@@ -48,4 +40,5 @@ def mergesort [T:Ordering] (liste: List[T]): List[T] =
 Tests:
 mergesort(List(1,4,2,25,7,3,8,10,9)) = List(1, 2, 3, 4, 7, 8, 9, 10, 25)
 mergesort(List("c","b","d","a")) =  = List(a, b, c, d)
+ mergesort(List(1.3,1.1,1.2,1.8,1.7,1.29)) =  List(1.1, 1.2, 1.29, 1.3, 1.7, 1.8)
  */
