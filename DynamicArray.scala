@@ -5,7 +5,7 @@ import scala.reflect.ClassTag
 //Voraussetzung: /
 // Effekt: /
 // Ergebnis: Leerer Stack ist gegeben
-class DynamicArrayStack[A: ClassTag]
+class DynamicArrayStack[A: ClassTag] :
     //Header:
     private  var array : Array[A] = new Array[A] (1)
     private var amount : Int = 0
