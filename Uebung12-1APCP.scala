@@ -1,3 +1,8 @@
+/* Uebung 12
+ Christian Papenfuss & 
+ Tutorium 04 Montag 10-12 Uhr
+Tutor: Alex, Adrian-Maurice
+*/
 // Aufgabe 1a
 /* 
 - Mehrfachvererbung kann zu komplexen Hierarchien führen, die schwer zu verstehen sind
